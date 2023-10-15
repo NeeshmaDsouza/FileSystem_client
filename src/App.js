@@ -3,10 +3,10 @@ import { Menu, MenuItem, Sidebar } from 'react-pro-sidebar';
 import './App.css';
 import { UserList } from './pages/UserList';
 import { Home } from './pages/Home';
+import { Dashboard } from './pages/Dashboard';
 import { UserForm } from './pages/UserForm';
 import { FaHome, FaPlus, FaList } from 'react-icons/fa';
 import fileSys from './images/fileSys.png';
-
 
 function App() {
   return (
@@ -17,6 +17,13 @@ function App() {
             <img className="imageStyle" src={fileSys} alt="File System"/>
           </div>
           <Menu className='menuStyle'>
+            <MenuItem>
+              <h2>
+                <Link to={'/dashboard'} className='itemStyle'>
+                <FaHome /> Dashboard
+                </Link>
+              </h2>
+            </MenuItem>
             <MenuItem>
               <h2>
                 <Link to={'/'} className='itemStyle'>
@@ -41,6 +48,7 @@ function App() {
           </Menu>
         </Sidebar>
         <Routes>
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/" element={<Home />} />
           <Route path="/userList" element={<UserList />} />
           <Route path="/userForm" element={<UserForm />} />
